@@ -84,7 +84,7 @@
 
 #     return app
 
-
+#3 sqlite with sqlalchemy
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
