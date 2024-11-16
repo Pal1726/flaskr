@@ -341,3 +341,4 @@ def delete(id):
     db.delete(post)  # Use SQLAlchemy to delete the post
     db.commit()  # Commit the changes
     return redirect(url_for('blog.index'))
+
