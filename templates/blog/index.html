@@ -1,4 +1,4 @@
-<!-- {% extends 'base.html' %}
+{% extends 'base.html' %}
 
 {% block header %}
   <h1>{% block title %}Posts{% endblock %}</h1>
@@ -25,37 +25,6 @@
       <hr>
     {% endif %}
   {% endfor %}
-{% endblock %} -->
+{% endblock %} 
 
 
-<!-- #if you want to go with sqlalchemy then remove the above code -->
-
-{% extends 'base.html' %}
-
-{% block header %}
-  <h1>{% block title %}Posts{% endblock %}</h1>
-  {% if g.user %}
-    <a class="action" href="{{ url_for('blog.create') }}">New</a>
-  {% endif %}
-{% endblock %}
-
-{% block content %}
-  {% for item in posts %}
-
-    <article class="post">
-      <header>
-        <div>
-          <h1>{{ item.post.title }}</h1>  <!-- Accessing the post title -->
-          <div class="about">by {{ item.username }} on {{ item.post.created.strftime('%Y-%m-%d') }}</div>
-        </div>
-        {% if g.user['id'] == item.post.author_id %}
-          <a class="action" href="{{ url_for('blog.update', id=item.post.id) }}">Edit</a>
-        {% endif %}
-      </header>
-      <p class="body">{{ item.post.body }}</p> <!-- Accessing the post body -->
-    </article>
-    {% if not loop.last %}
-      <hr>
-    {% endif %}
-  {% endfor %}
-{% endblock %}
